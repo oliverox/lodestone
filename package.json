@@ -1,0 +1,15 @@
+{
+  "name": "lodestone",
+  "version": "0.1.0",
+  "description": "A simple node themeable webapp creator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oliver Oxenham",
+  "license": "ISC",
+  "devDependencies": {
+    "better-npm-run": "0.0.7",
+    "eslint": "^2.0.0"
+  }
+}
