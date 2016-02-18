@@ -4,7 +4,7 @@ import React from 'react';
  *  Renders a simple button.
  *    'type'  : '' | <primary> | <fullWidth>
  */
-const SimpleButton = (prop) => {
+export const SimpleButton = (prop) => {
   const propTypeArr = (prop.type) ? prop.type.split(' ') : [];
   const propMap = {
     'primary': 'button-primary',
@@ -23,5 +23,3 @@ const SimpleButton = (prop) => {
     <button {...prop} className={cn}>{prop.children}</button>
   );
 };
-
-export default SimpleButton;
