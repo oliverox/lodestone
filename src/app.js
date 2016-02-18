@@ -4,7 +4,7 @@ if (module.hot) {
 }
 import mainStyles from './styles/main.scss';
 import styles from './styles/app.scss';
-import React from 'react'; // eslint-disable-line no-unused-vars
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { SimpleButton } from 'elements';

@@ -1,5 +1,5 @@
 {
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended"],
     "env": {
         "browser": true,
         "node": true,
@@ -17,6 +17,8 @@
     ],
     "rules": {
         "no-extra-semi": 2,
-        "semi": 2
+        "semi": 2,
+        "react/jsx-uses-react": 2,
+        "react/react-in-jsx-scope": 2
     }
 }
