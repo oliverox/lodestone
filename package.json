@@ -4,9 +4,8 @@
   "description": "A simple node themeable webapp creator",
   "main": "index.js",
   "scripts": {
-    "start:dev": "babel-node devServer.js",
-    "start:dev2": "webpack-dev-server --inline --content-base ./public --history-api-fallback",
-    "start:prod": "webpack && babel-node server.js",
+    "start:dev": "NODE_ENV=development babel-node server.js",
+    "start:prod": "NODE_ENV=production && webpack --config webpack.config.babel.js && babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oliver Oxenham",

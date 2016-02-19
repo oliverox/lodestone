@@ -18,6 +18,6 @@ console.log('SimpleButton:', SimpleButton, mainStyles, styles);
 // document.getElementsByTagName('html')[0].style.backgroundColor = "pink";
 const dest = document.getElementById('app');
 const onButtonClick = () => {
-  console.log('button was clicked!');
+  console.log('button was clicked! hmm');
 };
-ReactDOM.render(<SimpleButton onClick={onButtonClick}>Simple button</SimpleButton>, dest);
+ReactDOM.render(<SimpleButton onClick={onButtonClick}>Simple button 1</SimpleButton>, dest);
