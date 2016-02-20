@@ -7,7 +7,7 @@ import styles from './styles/app.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { SimpleButton } from 'elements';
+import { SimpleButton } from 'components';
 
 console.log('SimpleButton:', SimpleButton, mainStyles, styles);
 // var testNode = document.createElement('div');
@@ -20,4 +20,4 @@ const dest = document.getElementById('app');
 const onButtonClick = () => {
   console.log('button was clicked! hmm');
 };
-ReactDOM.render(<SimpleButton onClick={onButtonClick}>Simple button 1</SimpleButton>, dest);
+ReactDOM.render(<SimpleButton type={'primary'} onClick={onButtonClick}>Simple button 1</SimpleButton>, dest);
