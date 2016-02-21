@@ -1,9 +1,12 @@
 /*eslint no-console: 0*/
 import express from 'express';
+import React from 'react';
+import ReactDOM from 'react-dom/server';
 import path from 'path';
 import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel.js';
 import config from './config';
+// import { Html } from './src/components';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const app = new express();
@@ -32,8 +35,24 @@ if (!isProduction) {
 // serve static files from public folder
 app.use(express.static(publicPath));
 
+// app.get('*', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'src/html', 'index.html'));
+// });
+
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'src/html', 'index.html'));
+  res.send('<!doctype html>\n' +
+    ReactDOM.renderToString(
+      <html lang="en-us">
+        <head>
+          <meta charSet="utf8"/>
+          <title dangerouslySetInnerHTML={{__html: 'Lodestone!'}}/>
+        </head>
+        <body>
+          <div id="app" dangerouslySetInnerHTML={{__html: 'test'}}/>
+          <script src="/dist/bundle.js"></script>
+        </body>
+      </html>
+    ));
 });
 
 app.listen(config.port, function onAppListening(err) {
