@@ -4,15 +4,14 @@ if (module.hot) {
   module.hot.accept();
 }
 import './styles/main.scss';
-import styles from './styles/app.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router';
+import { Home, About } from 'screens';
 
-import { SimpleButton } from 'components';
-
-console.log('SimpleButton:', SimpleButton, styles);
-const dest = document.getElementById('app');
-const onButtonClick = () => {
-  console.log('button was clicked! hmm');
-};
-ReactDOM.render(<SimpleButton type={'primary'} onClick={onButtonClick}>Simple button 1</SimpleButton>, dest);
+ReactDOM.render((
+  <Router history={hashHistory}>
+    <Route path="/" component={Home}/>
+    <Route path="/about" component={About}/>
+  </Router>
+), document.getElementById('app'));

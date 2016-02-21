@@ -1,5 +1,5 @@
 /**
- *  Point of contact for components modules
+ *  Point of contact for components
  */
 
 // Stateless components

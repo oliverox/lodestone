@@ -48,7 +48,7 @@ app.get('*', function (req, res) {
           <title dangerouslySetInnerHTML={{__html: 'Lodestone!'}}/>
         </head>
         <body>
-          <div id="app" dangerouslySetInnerHTML={{__html: 'test'}}/>
+          <div id="app"></div>
           <script src="/dist/bundle.js"></script>
         </body>
       </html>

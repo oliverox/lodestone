@@ -1,9 +1,10 @@
-import React from 'react';
-
 /** SimpleButton Element
  *  Renders a simple button.
  *    'type'  : '' | <primary> | <fullWidth>
  */
+
+import React from 'react';
+
 export const SimpleButton = (prop) => {
   const propTypeArr = (prop.type) ? prop.type.split(' ') : [];
   const propMap = {

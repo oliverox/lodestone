@@ -1,9 +1,10 @@
-import React from 'react';
-
 /** Column Element
  *  Renders a div element of size x column(s).
  *    'size' : <size of column: 1 ... 12>
  */
+
+import React from 'react';
+
 export const Column = (prop) => {
   const sizes = {
     1: 'one',
