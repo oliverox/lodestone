@@ -6,12 +6,7 @@ if (module.hot) {
 import './styles/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router';
-import { Home, About } from 'screens';
+import { Router, browserHistory } from 'react-router';
+import { routes } from 'routes';
 
-ReactDOM.render((
-  <Router history={hashHistory}>
-    <Route path="/" component={Home}/>
-    <Route path="/about" component={About}/>
-  </Router>
-), document.getElementById('app'));
+ReactDOM.render(<Router routes={routes} history={browserHistory}/>, document.getElementById('app'));
