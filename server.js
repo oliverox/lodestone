@@ -45,7 +45,7 @@ app.get('*', function (req, res) {
       <html lang="en-us">
         <head>
           <meta charSet="utf8"/>
-          <title dangerouslySetInnerHTML={{__html: 'Lodestone!'}}/>
+          <title>Lodestone!</title>
         </head>
         <body>
           <div id="app"></div>
