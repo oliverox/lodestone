@@ -1,4 +1,8 @@
-.test {
-    color: white;
-    background-color: blue;
-}
+// Normalize styles
+@import "./normalize";
+
+// Import a theme
+@import "./theme/basic/index";
+
+
+// App styles here

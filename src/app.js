@@ -3,7 +3,7 @@ if (module.hot) {
   console.debug('module.hot === true');
   module.hot.accept();
 }
-import './styles/main.scss';
+import './styles/app.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, browserHistory } from 'react-router';
