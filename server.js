@@ -54,21 +54,25 @@ app.use(express.static(publicPath));
 
 // serve all routes
 app.get('*', function (req, res) {
-  // if (req.url === '/favicon.ico') {
-  //   res.writeHead(200, {'Content-Type': 'image/x-icon'} );
-  //   res.end();
-  //   console.log('favicon requested');
-  //   return;
-  // }
-  console.log('..............server request');
+  console.log('...Server request at', req.url);
   // match the routes to the url
-  match({ routes: routes, location: req.url }, (err, redirect, props1) => {
+  match({ routes: routes, location: req.url }, (err, redirect, props) => {
     // `RouterContext` is the what `Router` renders. `Router` keeps these
     // `props` in its state as it listens to `browserHistory`. But on the
     // server our app is stateless, so we need to use `match` to
     // get these props before rendering.
-    const appHtml = ReactDOM.renderToString(<RouterContext {...props1}/>)
-    res.send(renderPage(appHtml))
+    if (err) {
+      res.status(500).send(err.message);
+    } else if (redirect) {
+      res.redirect(redirect.pathname + redirect.search);
+    } else if (props) {
+      // if we got props then we matched a route and can render
+      const appHtml = ReactDOM.renderToString(<RouterContext {...props}/>);
+      res.send(renderPage(appHtml));
+    } else {
+      // no errors, no redirect, we just didn't match anything
+      res.status(404).send('Not Found');
+    }
   })
   /*
   res.send('<!doctype html>\n' +
