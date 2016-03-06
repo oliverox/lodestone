@@ -10,4 +10,3 @@ export { Container } from './Container/Container';
 
 // Stateful components
 // export { Html } from './Html/Html';
-export { Router } from './Router/Router';

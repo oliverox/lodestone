@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { Link } from 'react-router';
+import { SimpleButton } from '../../components';
 
 export const Home = () => {
   return (
@@ -11,6 +12,7 @@ export const Home = () => {
       <h1>Home</h1>
       <ul role="nav">
         <li><Link to="/about">About</Link></li>
+        <li><SimpleButton type="primary">SimpleButton</SimpleButton></li>
       </ul>
     </div>
   );
