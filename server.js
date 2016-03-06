@@ -15,19 +15,33 @@ const compiler = webpack(webpackConfig);
 const publicPath = path.resolve(__dirname, 'public');
 
 const renderPage = (appHtml) => {
-  return `
-    <html lang="en-us">
-      <head>
-        <meta charset="utf8"/>
-        <title>Lodestone!</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico">
-      </head>
-      <body>
-        <div id="app">${appHtml}</div>
-        <script src="/dist/bundle.js"></script>
-      </body>
-    </html>
-  `
+  let htmlContent = '<html lang="en-us"><head>';
+
+  // add meta tags
+  htmlContent += '<meta charset="utf8"/>';
+
+  // add title
+  htmlContent += '<title>Lodestone!</title>';
+
+  // add favicon
+  htmlContent += '<link rel="icon" type="image/x-icon" href="/favicon.ico">';
+
+  // add styles if in prod
+  htmlContent += (isProduction)? '<link rel="stylesheet" href="/dist/styles.css">' : '';
+
+  // start body
+  htmlContent += '</head><body>';
+
+  // body content
+  htmlContent += '<div id="app">' + appHtml + '</div>';
+
+  // add script tag
+  htmlContent += '<script src="/dist/bundle.js"></script>';
+
+  // close html tag
+  htmlContent += '</body></html>';
+
+  return htmlContent;
 };
 
 if (!isProduction) {
@@ -73,7 +87,7 @@ app.get('*', function (req, res) {
       // no errors, no redirect, we just didn't match anything
       res.status(404).send('Not Found');
     }
-  })
+  });
   /*
   res.send('<!doctype html>\n' +
     ReactDOM.renderToString(

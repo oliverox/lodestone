@@ -1,17 +1,23 @@
 /*eslint no-console: 0*/
 import webpack from 'webpack';
 import path from 'path';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const buildPath = path.resolve(__dirname, 'public', 'dist');
 const bundleName = 'bundle.js';
 const publicPath = '/dist/';
 const entryFiles = ['./src/app.js'];
-const loaders = [
+const loaders = [];
+loaders.push([
   { test: /\.js$/, exclude: /node_modules/, loaders: ['babel', 'eslint']},
-  { test: /\.json$/, loader: 'json-loader' },
-  { test: /\.scss$/, loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded&sourceMap' }
-];
+  { test: /\.json$/, loader: 'json-loader' }
+]);
+if (isProduction) {
+  loaders.push({ test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded&sourceMap') });
+} else {
+  loaders.push({ test: /\.scss$/, loader: 'style-loader!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!sass?outputStyle=expanded&sourceMap' });
+}
 
 // For Development
 const devConfig = {
@@ -65,7 +71,8 @@ const prodConfig = {
       compress: {
             warnings: false
         }
-    })
+    }),
+    new ExtractTextPlugin('styles.css')
   ]
 };
 
