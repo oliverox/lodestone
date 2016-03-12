@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-import { SimpleButton } from '../../components';
+import { SimpleButton } from 'components';
 
 export const Home = () => {
   return (

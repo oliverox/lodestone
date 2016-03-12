@@ -2,5 +2,14 @@
     "presets": [
         "es2015",
         "react"
+    ],
+    "plugins": [
+        [
+            "babel-plugin-module-alias", [
+                { "src": "./src/routes", "expose": "routes" },
+                { "src": "./src/components", "expose": "components" },
+                { "src": "./src/screens", "expose": "screens" }
+            ]
+        ]
     ]
 }

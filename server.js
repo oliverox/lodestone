@@ -7,7 +7,7 @@ import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel.js';
 import config from './config';
 import { match, RouterContext } from 'react-router';
-import { routes } from './src/routes';
+import { routes } from 'routes';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const app = new express();
@@ -88,21 +88,6 @@ app.get('*', function (req, res) {
       res.status(404).send('Not Found');
     }
   });
-  /*
-  res.send('<!doctype html>\n' +
-    ReactDOM.renderToString(
-      <html lang="en-us">
-        <head>
-          <meta charSet="utf8"/>
-          <title>Lodestone!</title>
-        </head>
-        <body>
-          <div id="app"></div>
-          <script src="/dist/bundle.js"></script>
-        </body>
-      </html>
-    ));
-  */
 });
 
 app.listen(config.port, function onAppListening(err) {
