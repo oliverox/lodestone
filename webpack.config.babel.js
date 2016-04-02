@@ -5,7 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const buildPath = path.resolve(__dirname, 'public', 'dist');
-const bundleName = 'bundle.js';
+const bundleName = '[name]_[hash].bundle.js';
 const publicPath = '/dist/';
 const entryFiles = ['./src/app.js'];
 const loaders = [];
@@ -47,7 +47,7 @@ const devConfig = {
 
 // For Production
 const prodConfig = {
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   context: path.resolve(__dirname),
   entry: entryFiles,
   output: {
@@ -67,11 +67,7 @@ const prodConfig = {
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(), // when moving to webpack 2.0, change line to: new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-            warnings: false
-        }
-    }),
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }}),
     new ExtractTextPlugin('styles.css')
   ]
 };
