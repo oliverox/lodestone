@@ -1,19 +1,21 @@
 /*eslint no-console: 0*/
 import express from 'express';
-import React from 'react';
-import ReactDOM from 'react-dom/server';
+// import React from 'react';
+// import ReactDOM from 'react-dom/server';
 import path from 'path';
 import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel.js';
 import config from './config';
-import { match, RouterContext } from 'react-router';
+import { match } from 'react-router';
+// import { match, RouterContext } from 'react-router';
 import { routes } from 'routes';
+import assets from './webpack-assets.json';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const app = new express();
 const compiler = webpack(webpackConfig);
 const publicPath = path.resolve(__dirname, 'public');
-
+console.log('................... assets.main.js=', assets.main.js);
 const renderPage = (appHtml) => {
   let htmlContent = '<html lang="en-us"><head>';
 
@@ -36,7 +38,7 @@ const renderPage = (appHtml) => {
   htmlContent += '<div id="app">' + appHtml + '</div>';
 
   // add script tag
-  htmlContent += '<script src="/dist/bundle.js"></script>';
+  htmlContent += '<script src="' + assets.main.js + '"></script>';
 
   // close html tag
   htmlContent += '</body></html>';
@@ -81,7 +83,8 @@ app.get('*', function (req, res) {
       res.redirect(redirect.pathname + redirect.search);
     } else if (props) {
       // if we got props then we matched a route and can render
-      const appHtml = ReactDOM.renderToString(<RouterContext {...props}/>);
+      // const appHtml = ReactDOM.renderToString(<RouterContext {...props}/>);
+      const appHtml = '<div class="test">rendered from server</div><div class="test1">line 2 rendered from server</div>';
       res.send(renderPage(appHtml));
     } else {
       // no errors, no redirect, we just didn't match anything

@@ -1,0 +1,61 @@
+exports = module.exports = require("./../../node_modules/css-loader/lib/css-base.js")();
+// imports
+
+
+// module
+exports.push([module.id, "._3zij3kNPZXvzJsIozMX0kK {\n  background-color: hotpink; }\n", ""]);
+
+// exports
+exports.locals = {
+	"test": "_3zij3kNPZXvzJsIozMX0kK"
+};exports = module.exports = require("./../../node_modules/css-loader/lib/css-base.js")();
+// imports
+
+
+// module
+exports.push([module.id, "._2Zoja_bLAXQoufUuXoLM2H {\n  background-color: lightblue; }\n", ""]);
+
+// exports
+exports.locals = {
+	"test1": "_2Zoja_bLAXQoufUuXoLM2H"
+};exports = module.exports = require("./../../node_modules/css-loader/lib/css-base.js")();
+// imports
+
+
+// module
+exports.push([module.id, "._3zij3kNPZXvzJsIozMX0kK {\n  background-color: hotpink; }\n", ""]);
+
+// exports
+exports.locals = {
+	"test": "_3zij3kNPZXvzJsIozMX0kK"
+};exports = module.exports = require("./../../node_modules/css-loader/lib/css-base.js")();
+// imports
+
+
+// module
+exports.push([module.id, "._2Zoja_bLAXQoufUuXoLM2H {\n  background-color: lightblue; }\n", ""]);
+
+// exports
+exports.locals = {
+	"test1": "_2Zoja_bLAXQoufUuXoLM2H"
+};exports = module.exports = require("./../../node_modules/css-loader/lib/css-base.js")();
+// imports
+
+
+// module
+exports.push([module.id, "._3zij3kNPZXvzJsIozMX0kK {\n  background-color: hotpink; }\n", ""]);
+
+// exports
+exports.locals = {
+	"test": "_3zij3kNPZXvzJsIozMX0kK"
+};exports = module.exports = require("./../../node_modules/css-loader/lib/css-base.js")();
+// imports
+
+
+// module
+exports.push([module.id, "._2Zoja_bLAXQoufUuXoLM2H {\n  background-color: lightblue; }\n", ""]);
+
+// exports
+exports.locals = {
+	"test1": "_2Zoja_bLAXQoufUuXoLM2H"
+};

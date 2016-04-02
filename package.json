@@ -27,6 +27,7 @@
   "author": "Oliver Oxenham",
   "license": "ISC",
   "devDependencies": {
+    "assets-webpack-plugin": "^3.4.0",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.2",
     "babel-loader": "^6.2.4",
